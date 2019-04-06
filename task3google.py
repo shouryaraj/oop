@@ -30,12 +30,12 @@ def crytography(range, ciper, list):
 
     while i < (len(list)):
         if i == 0:
-          values = prime_number(list[i])
+          values = prime_number(int(list[i]))
           prime_array.append(values[0])
           prime_array.append(values[1])
           print(prime_array)
         else:
-            value = list[i]/prime_array[i]
+            value = int(list[i])/prime_array[i]
             prime_array.append((value))
         i+=1
 
@@ -59,13 +59,19 @@ def crytography(range, ciper, list):
     value = ''.join(code)
     return value
 
-print(prime_number(1891))
 #list = [217, 1891, 4819, 2291, 2987, 3811, 1739, 2491, 4717, 445, 65, 1079, 8383, 5353, 901, 187,649, 1003, 697, 3239, 7663, 291, 123, 779, 1007, 3551, 1943, 2117, 1679, 989, 3053]
 
-list = [3292937,175597,18779,50429,375469,1651121,2102,3722,2376497,611683,489059,2328901,3150061
-    ,829981,421301,76409,38477,291931,730241,959821,1664197,3057407,4267589,4729181,5335543]
+#list = [3292937,175597,18779,50429,375469,1651121,2102,3722,2376497,611683,489059,2328901,3150061
+    #,829981,421301,76409,38477,291931,730241,959821,1664197,3057407,4267589,4729181,5335543]
 
-print(crytography(10000000, 25, list))
+input_T = int(input())
+
+for j in range(input_T):
 
 
+    input_N, ciper= input().split()
+    input_array = input()
+    list = input_array.split(" ")
+    result = crytography(int(input_N),int(ciper), list)
 
+    print("Case #"+ str(j+1) +": " + result)
