@@ -32,8 +32,7 @@ def cheque_generator(n):
            B += sub
            C = str(A)
            D = str(B)
-           print(A)
-           print(B)
+
 
        k = k - 1
 
@@ -41,7 +40,7 @@ def cheque_generator(n):
            return [str(A), str(B)]
 
 
- 
+
 
 
 
