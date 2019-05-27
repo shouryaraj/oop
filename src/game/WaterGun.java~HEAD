@@ -1,0 +1,27 @@
+package game;
+import edu.monash.fit2099.engine.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 
+ * Rocket plan class will be called when rocket plan is picking up and exchanging between player and Q.
+ * It is an extended item from the Item 
+ * 
+ */
+public class WaterGun extends Item {
+	
+	public WaterGun(String name, char displayChar) {
+		super(name,  displayChar);
+	}
+	public static WaterGun newInventoryItem(String name, char displayChar)
+	{
+		WaterGun gun = new WaterGun(name, displayChar);
+		gun.allowableActions.clear();								//remove rocket plan
+		gun.allowableActions.add(new DropItemAction(gun));			//drop rocket plan
+//		gun.allowableActions.add(new ShootingAction(gun));			//drop rocket plan
+		return gun;
+	}
+	
+}

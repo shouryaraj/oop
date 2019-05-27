@@ -1,0 +1,45 @@
+package game;
+
+import edu.monash.fit2099.engine.Action;
+import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Location;
+
+import java.util.Random;
+
+
+public class RechargeGun extends Action {
+
+	private String direction;
+	private Location windowLocation;
+	private Random rand = new Random();
+	public boolean capacityfull = false;
+	
+	public RechargeGun(String direction, Location windowLocation) {
+		this.direction = direction;
+		this.windowLocation = windowLocation;
+	}
+	
+	@Override
+	public String execute(Actor actor, GameMap map) {
+		if (actor.hasSkill(PlayerEnum.HASGUN)){
+			capacityfull = true;
+			return "Recharge complete! Lets wet his face ;)";
+		}
+		capacityfull = false;
+		return "Need a gun!";
+	}
+
+	@Override
+	public String menuDescription(Actor actor) {
+		if(actor.hasSkill(PlayerEnum.HASGUN)) {
+			return "Water! lets reload.";
+	  }
+		return "Cant reload without a gun!";
+	}
+
+	@Override
+	public String hotKey() {
+		return "";
+	}
+}
